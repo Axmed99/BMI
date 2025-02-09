@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-card">
+            <div class="header">
+                <h1>BMI Calculator</h1>
+                <p class="subtitle">Check your Body Mass Index (BMI) to see if you're at a healthy weight</p>
+            </div>
+
+            <form id="bmi-form">
+                <div class="measurement-toggle">
+                    <label class="radio-container">
+                        <input type="radio" name="unit" value="metric" checked>
+                        <span class="radio-label">Metric</span>
+                    </label>
+                    <label class="radio-container">
+                        <input type="radio" name="unit" value="imperial">
+                        <span class="radio-label">Imperial</span>
+                    </label>
+                </div>
+
+                <div class="input-groups">
+                    <div class="input-group">
+                        <label for="weight">Weight</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="weight" required step="0.1" min="0" placeholder="0.0">
+                            <span class="unit-label">kg</span>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="height">Height</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="height" required step="0.01" min="0" placeholder="0.00">
+                            <span class="unit-label">m</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="calculate-btn">
+                    Calculate BMI
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </form>
+
+            <div id="result" class="result hidden">
+                <div class="result-card">
+                    <h2>Your BMI Result</h2>
+                    <div class="bmi-value"></div>
+                    <div class="bmi-category"></div>
+                    <div class="bmi-description"></div>
+                </div>
+                
+                <div class="bmi-categories">
+                    <div class="category-button underweight" data-range="<18.5">
+                        <div class="category-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M12 5v14M5 12h14" stroke="currentColor" fill="none" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="category-content">
+                            <span class="category-title">Underweight</span>
+                            <span class="category-range">&lt;18.5</span>
+                        </div>
+                    </div>
+                    
+                    <div class="category-button normal" data-range="18.5-24.9">
+                        <div class="category-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M9 12l2 2 4-4" stroke="currentColor" fill="none" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="category-content">
+                            <span class="category-title">Normal</span>
+                            <span class="category-range">18.5-24.9</span>
+                        </div>
+                    </div>
+                    
+                    <div class="category-button overweight" data-range="25-29.9">
+                        <div class="category-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M12 5v14" stroke="currentColor" fill="none" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="category-content">
+                            <span class="category-title">Overweight</span>
+                            <span class="category-range">25-29.9</span>
+                        </div>
+                    </div>
+                    
+                    <div class="category-button obese" data-range="≥30">
+                        <div class="category-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <circle cx="12" cy="12" r="6" stroke="currentColor" fill="none" stroke-width="2"/>
+                                <path d="M12 8v8" stroke="currentColor" fill="none" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="category-content">
+                            <span class="category-title">Obese</span>
+                            <span class="category-range">≥30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
